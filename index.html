@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://cdn.jsdelivr.net/npm/phaser@3.60.0/dist/phaser-arcade-physics.min.js"></script>
+  </head>
+  <body>
+    <script>
+      class Example extends Phaser.Scene {
+        preload() {
+          this.load.audio("bgMusic", "Assets/lofi-beats1.mp3");
+        }
+
+        create() {
+          this.sound.volume = 0.1;
+          const bgMusic = this.sound.add("bgMusic");
+          this.sound.play("bgMusic");
+        }
+      }
+
+      const config = {
+        type: Phaser.AUTO,
+        width: 800,
+        height: 600,
+        scene: Example,
+        physics: {
+          default: "arcade",
+          arcade: {
+            gravity: { y: 200 },
+          },
+        },
+      };
+
+      const game = new Phaser.Game(config);
+    </script>
+  </body>
+</html>
